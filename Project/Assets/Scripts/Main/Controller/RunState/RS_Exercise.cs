@@ -19,6 +19,14 @@ namespace com.erik.training.controller
 		void HandleOnExerciseViewReady ()
 		{
 			ViewController.OnReady -= HandleOnExerciseViewReady;
+			ExerciseView.OnFinish += HandleOnExerciseFinish;
+
+		}
+
+		void HandleOnExerciseFinish ()
+		{
+			nextState = typeof(RS_Summary);
+			GoNext ();
 
 		}
 		

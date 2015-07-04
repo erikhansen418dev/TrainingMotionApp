@@ -13,12 +13,12 @@ namespace com.erik.training.model{
 		public const string USER_EMAIL_KEY 		= "Email";
 
 				
-		public const string PATH_REGISTER_VIEW_KEY	 = "ViewPrefabs/Panel_Register_prefab";
-		public const string PATH_HOME_VIEW_KEY		 = "ViewPrefabs/Panel_Home_prefab";
-		public const string PATH_CALIBRATION_VIEW_KEY = "ViewPrefabs/Panel_Calibration_prefab";
-		public const string PATH_EXCERCISE_VIEW_KEY  = "ViewPrefabs/Panel_Exercise_prefab";
-		public const string PATH_SUMMARY_VIEW_KEY 	 = "ViewPrefabs/prefab_Canvas_Home";
-		public const string PATH_TUTORIAL_VIEW_KEY	 = "ViewPrefabs/Panel_Tutorial_prefab";
+		public const string PATH_REGISTER_VIEW_KEY	 	= "ViewPrefabs/Panel_Register_prefab";
+		public const string PATH_HOME_VIEW_KEY		 	= "ViewPrefabs/Panel_Home_prefab";
+		public const string PATH_CALIBRATION_VIEW_KEY 	= "ViewPrefabs/Panel_Calibration_prefab";
+		public const string PATH_EXCERCISE_VIEW_KEY  	= "ViewPrefabs/Panel_Exercise_prefab";
+		public const string PATH_SUMMARY_VIEW_KEY 	 	= "ViewPrefabs/Panel_Summary_prefab";
+		public const string PATH_TUTORIAL_VIEW_KEY	 	= "ViewPrefabs/Panel_Tutorial_prefab";
 		
 		public const string PATH_EVENT_SYSTEM_KEY 	= "ViewPrefabs/EventSystem_prefab";
 		public const string PATH_CANVAS_ROOT_KEY 	= "ViewPrefabs/Canvas_Root_prefab";

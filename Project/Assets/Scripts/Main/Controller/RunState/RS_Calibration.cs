@@ -17,8 +17,36 @@ namespace com.erik.training.controller{
 
 		private void HandleOnCalibrationViewReady()
 		{
+			ViewController.OnReady -= HandleOnCalibrationViewReady;
+			CalibrationView.OnGoHome += HandleOnGoHome;
+
+			StartCoroutine("Timer");
+		
+		}
+
+		private void HandleOnGoHome()
+		{
+			CalibrationView.OnGoHome -= HandleOnGoHome;
+			nextState = typeof(RS_Home);
+			GoNext ();
+		}
+
+		private void HandleOnCalibrationSuccess()
+		{
+			// -= HandleOnCalibrationSuccess;
+			nextState = typeof(RS_Exercise);
+			GoNext ();
 
 		}
+
+		IEnumerator Timer()
+		{
+			yield return new WaitForSeconds (3.0f);
+			HandleOnCalibrationSuccess ();
+
+		}
+
+
 	}
 
 }

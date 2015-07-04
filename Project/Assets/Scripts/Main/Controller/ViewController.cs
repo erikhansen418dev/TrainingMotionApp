@@ -55,20 +55,22 @@ namespace com.erik.training.controller{
 				Destroy (currentPanel);
 			
 			Object _panelResource = null;
-			
+
+			bool bShowCameraFeed = false;
 			switch (newState) {
 				
 			case ViewState.VS_CALIBRATION:
 				
 				_panelResource = Resources.Load<Object>(Constants.PATH_CALIBRATION_VIEW_KEY);
 				screenTitle = Constants.TITLE_CALIBRATION_VIEW;
-				frameView.ActivateCameraFeed(true);
+				bShowCameraFeed = true;
 				break;
 
 			case ViewState.VS_EXERCISE:
 				
 				_panelResource = Resources.Load<Object>(Constants.PATH_EXCERCISE_VIEW_KEY);
 				screenTitle = Constants.TITLE_EXCERCISE_VIEW;
+				bShowCameraFeed = true;
 				break;
 				
 			case ViewState.VS_HOME:
@@ -101,6 +103,7 @@ namespace com.erik.training.controller{
 			
 			currentPanel = InstantiatePanel (_panelResource);
 			frameView.SetTitle (screenTitle);
+			frameView.ActivateCameraFeed(bShowCameraFeed);
 			
 			if (OnReady != null) {
 				OnReady ();		

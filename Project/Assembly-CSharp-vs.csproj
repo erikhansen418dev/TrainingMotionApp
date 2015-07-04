@@ -74,12 +74,14 @@
      <Compile Include="Assets\Scripts\Main\Model\UserData.cs" />
      <Compile Include="Assets\Scripts\Main\View\CalibrationView.cs" />
      <Compile Include="Assets\Scripts\Main\View\ExerciseEntry.cs" />
+     <Compile Include="Assets\Scripts\Main\View\ExerciseStatusSubView.cs" />
      <Compile Include="Assets\Scripts\Main\View\ExerciseView.cs" />
-     <Compile Include="Assets\Scripts\Main\View\ExerciseView_.cs" />
      <Compile Include="Assets\Scripts\Main\View\FramePanelView.cs" />
      <Compile Include="Assets\Scripts\Main\View\HomeView.cs" />
      <Compile Include="Assets\Scripts\Main\View\RegisterView.cs" />
+     <Compile Include="Assets\Scripts\Main\View\SummaryView.cs" />
      <Compile Include="Assets\Scripts\Main\View\TutorialView.cs" />
+     <Compile Include="Assets\Scripts\Main\View\temp Original Backup\ExerciseView_.cs" />
      <Compile Include="Assets\Scripts\Main\main.cs" />
      <Compile Include="Assets\Scripts\Util\Extention.cs" />
      <Compile Include="Assets\Scripts\Util\RS_Begin.cs" />
