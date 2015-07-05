@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using com.erik.training.model;
 
 namespace com.erik.training.view{
 
 	public class HomeView : MonoBehaviour {
 
-		public delegate void HomeViewEventDelegate (int index);
+		public delegate void HomeViewEventDelegate (ExerciseData exData);
 		public static event HomeViewEventDelegate OnEnterExercise;
 
 		public List<ExerciseEntry> listExerciseEntries;
@@ -25,16 +26,18 @@ namespace com.erik.training.view{
 		}
 
 		void HandleOnEntrySelected (int index)
-		{
-			Debug.Log ("HandleOnEntrySelected.. : " + index);
+		{	
 
 			foreach (ExerciseEntry e_entry in listExerciseEntries) {
 				
 				e_entry.OnEntrySelected -= HandleOnEntrySelected;
 			}
 
+			ExerciseData exData = listExerciseEntries [index].exerciseData;
+			Debug.Log ("HandleOnEntrySelected.. : " + exData.ToString());
+
 			if (OnEnterExercise != null)
-				OnEnterExercise (index);
+				OnEnterExercise (exData);
 		}
 		
 		// Update is called once per frame

@@ -33,6 +33,7 @@ namespace com.erik.training.controller{
 
 		private void HandleOnCalibrationSuccess()
 		{
+			CalibrationView.OnGoHome -= HandleOnGoHome;
 			// -= HandleOnCalibrationSuccess;
 			nextState = typeof(RS_Exercise);
 			GoNext ();

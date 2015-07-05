@@ -8,6 +8,9 @@ namespace com.erik.training.controller{
 
 	public class DataController : Singleton<DataController> {
 
+		public delegate void DataControllerEventDelegate();
+		public static event DataControllerEventDelegate OnUpdated;
+
 		private ExerciseData curData;
 
 		protected override void Init ()
@@ -17,6 +20,20 @@ namespace com.erik.training.controller{
 		// Use this for initialization
 		void Start () {
 			
+		}
+
+		public void SetData(ExerciseData data)
+		{
+			curData = new ExerciseData (data);
+			Debug.Log (" DataController: GetData : " + GetData ().ToString ());
+
+			if (OnUpdated != null)
+				OnUpdated ();
+		}
+
+		public ExerciseData GetData()
+		{
+			return curData;
 		}
 		
 

@@ -24,7 +24,8 @@ namespace com.erik.training.controller{
 		void HandleOnRegisterUserSuccess (User userInfo)
 		{
 			RegisterUser (userInfo);
-			
+
+			RegisterView.OnRegisterUserSuccess 	-= HandleOnRegisterUserSuccess;
 			nextState = typeof(RS_Home);
 			GoNext ();
 		}

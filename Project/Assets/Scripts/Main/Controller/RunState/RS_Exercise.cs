@@ -25,6 +25,7 @@ namespace com.erik.training.controller
 
 		void HandleOnExerciseFinish ()
 		{
+			ExerciseView.OnFinish -= HandleOnExerciseFinish;
 			nextState = typeof(RS_Summary);
 			GoNext ();
 

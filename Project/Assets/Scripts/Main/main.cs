@@ -9,9 +9,8 @@ public class main : MonoBehaviour {
 	void Start () {
 
 		TempClearHistory ();
+		InitER ();
 
-		RunState.nextState = typeof(RS_Init);
-		RunState.Done ();	
 	}
 	
 	// Update is called once per frame
@@ -22,5 +21,19 @@ public class main : MonoBehaviour {
 	void TempClearHistory()
 	{
 		PlayerPrefs.DeleteAll ();
+	}
+
+	void InitER()
+	{
+		ERSdkManager.OnReady += HandleOnERSdkReady;
+		ERSdkManager.Instance.StartManager ();
+	}
+
+	void HandleOnERSdkReady ()
+	{
+		Debug.Log("ERSdk Initialized... Ready..");
+
+		RunState.nextState = typeof(RS_Init);
+		RunState.Done ();	
 	}
 }

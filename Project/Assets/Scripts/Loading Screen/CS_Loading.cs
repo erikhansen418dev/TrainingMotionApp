@@ -43,24 +43,37 @@ public class CS_Loading : MonoBehaviour {
 
 		DontDestroyOnLoad (this);
 		Application.backgroundLoadingPriority = ThreadPriority.Low;
+		isLoading = true;
 		asyncLoading = Application.LoadLevelAsync (strNameNextScene);
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (asyncLoading.isDone)
-			isLoading = false;
-		else
-			isLoading = true;	
+		Debug.Log("Loding image drawing...");
+		if (asyncLoading.isDone) {
+			StartCoroutine(NewSceneAfterDelay(1));
+//			isLoading = false;
+		}
+		else {
+//			isLoading = true;	
+		}
 	}
 
 	void OnGUI()
 	{
 		if (isLoading) {
+			Debug.Log("Loding image drawing...");
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), textureLoadingImage, ScaleMode.StretchToFill); 
 		}
+	}
+
+
+	IEnumerator NewSceneAfterDelay(float delaySec)
+	{
+		yield return new WaitForSeconds (delaySec);
+		isLoading = false;
+		Destroy (this.gameObject);
 	}
 
 	#endregion // MONOBEHAVIOR FUNCTIONS

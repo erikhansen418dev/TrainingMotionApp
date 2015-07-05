@@ -24,6 +24,7 @@ namespace com.erik.training.controller{
 
 		void HandleOnTutorialPresentationCompleted ()
 		{
+			TutorialView.OnPresentationCompleted -= HandleOnTutorialPresentationCompleted;
 			nextState = typeof(RS_Calibration);
 			GoNext ();
 		}

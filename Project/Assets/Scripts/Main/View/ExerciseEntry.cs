@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using com.erik.training.model;
 
 
 namespace com.erik.training.view{
@@ -13,6 +14,8 @@ namespace com.erik.training.view{
 		private int entryIndex;
 		public Button buttonExcercise;
 		public Text textDescription;
+
+		public ExerciseData exerciseData;
 
 		// Use this for initialization
 		void Start () {

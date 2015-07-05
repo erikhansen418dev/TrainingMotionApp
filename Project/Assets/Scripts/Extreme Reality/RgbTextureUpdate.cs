@@ -78,6 +78,29 @@ public class RgbTextureUpdate : MonoBehaviour {
 		}
 	}
 
+	private void OnEnable()
+	{
+		ApplyCamera (true);
+	}
+
+	private void OnDisable()
+	{
+		ApplyCamera (false);
+	}
+
+	void ApplyCamera(bool bApply)
+	{
+		if (bApply) {
+			ExtremeMotionEventsManager.MyDataFrameReadyHandler += MyDataFrameReadyEventHandler;
+			ExtremeMotionEventsManager.MyColorImageFrameReadyHandler += MyColorImageFrameReadyEventHandler;
+		}
+		else 
+		{
+			ExtremeMotionEventsManager.MyDataFrameReadyHandler -= MyDataFrameReadyEventHandler;
+			ExtremeMotionEventsManager.MyColorImageFrameReadyHandler -= MyColorImageFrameReadyEventHandler;		
+		}
+	}
+
 
 	public void ToggleRgbFreeze() {
 		drawRGB = !drawRGB;

@@ -13,44 +13,44 @@ using Xtr3D.Net.ColorImage;
 using Xtr3D.Net.ExtremeMotion.Gesture;
 
 public class SdkManager : MonoBehaviour {
-
-    public Text StatusText;
+	
+	public Text StatusText;
 	public static bool IsDebugRun = false;
-		
+	
 	void Awake() {
-
+		
 		if (Application.platform != RuntimePlatform.IPhonePlayer
 		    && Application.platform != RuntimePlatform.Android)
 		{
-		    string[] args = Environment.GetCommandLineArgs();
-            if (args != null)
-            {
-                foreach (string arg in args)
-                {
-                    if (arg.ToLower() == "debug")
-                    {
-                        IsDebugRun = true;
-                        break;
-                    }
-                }
-            }
+			string[] args = Environment.GetCommandLineArgs();
+			if (args != null)
+			{
+				foreach (string arg in args)
+				{
+					if (arg.ToLower() == "debug")
+					{
+						IsDebugRun = true;
+						break;
+					}
+				}
+			}
 		}
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            IsDebugRun = true;
-        }
+		if (Application.platform == RuntimePlatform.Android)
+		{
+			IsDebugRun = true;
+		}
 		Debug.Log("Initializing and starting manager");
 		ImageInfo info = new ImageInfo(ImageResolution.Resolution640x480, ImageInfo.ImageFormat.RGB888);
 		string message = String.Empty;
-        
-        try
-        {
-            GeneratorSingleton.Instance.Initialize(GetPlatformType(), info);
-            SetGestureFile();
-        }
-        catch (InvalidLicenseException ex)
+		
+		try
 		{
-            message = "License Error: Invalid license";
+			GeneratorSingleton.Instance.Initialize(GetPlatformType(), info);
+			SetGestureFile();
+		}
+		catch (InvalidLicenseException ex)
+		{
+			message = "License Error: Invalid license";
 			Debug.LogError(message  + ex.Message);
 		}
 		catch (MissingLicenseException ex)
@@ -63,33 +63,33 @@ public class SdkManager : MonoBehaviour {
 			message = "License Error: License expired";
 			Debug.LogError(message  + ex.Message);
 		}
-        catch (NotInitializedException ex)
-        {
-            message = "Please verify Init was successfully called";
+		catch (NotInitializedException ex)
+		{
+			message = "Please verify Init was successfully called";
 			Debug.LogError(message  + ex.Message);
-        }
+		}
 		catch (Exception ex)
 		{
 			if (ex.Message.Contains("DllNotFoundException: Xtr3dManager")) 
-            {
+			{
 				message = "dll not found in the directory, or xtr3d prerequisites not installed properly";
-            }
+			}
 			else 
-            {
+			{
 				message = "Generic exception: \n";
 				Debug.LogError(message + ex.ToString());
-            }
+			}
 		}
-        
-        StatusText.text = message;
+		
+		StatusText.text = message;
 	}
-
+	
 	void StartManager ()
 	{
 		Debug.Log("SDK Manager Start04");
-
+		
 		if (GeneratorSingleton.Instance.IsInitialized) {
-
+			
 			Debug.Log("SDK Manager Start05");
 			string message = String.Empty;
 			try {
@@ -128,24 +128,24 @@ public class SdkManager : MonoBehaviour {
 	}
 	
 	void Start () {
-
+		
 		Debug.Log("SDK Manager Start");
-
+		
 		if (Application.platform == RuntimePlatform.IPhonePlayer
 		    || Application.platform == RuntimePlatform.Android)
 		{
 			OnApplicationPause(false);
 			Debug.Log("SDK Manager Start 02");
-
+			
 		}
-
+		
 		StartManager ();
 		Debug.Log("SDK Manager Start03");
 	}
-
-		
+	
+	
 	void OnApplicationPause(bool paused)
-    {
+	{
 		Debug.Log ("OnApplicationPause(bool paused) :"  + paused);
 		if (paused)
 		{
@@ -155,8 +155,8 @@ public class SdkManager : MonoBehaviour {
 		{
 			StartManager();
 		}
-    }
-
+	}
+	
 	public void ResetManager()
 	{
 		if (GeneratorSingleton.Instance.IsInitialized)
@@ -166,29 +166,29 @@ public class SdkManager : MonoBehaviour {
 		}
 	}
 	
-    private void SetGestureFile() {
-        string path = String.Empty;
+	private void SetGestureFile() {
+		string path = String.Empty;
+		
+		if (Application.platform == RuntimePlatform.IPhonePlayer)
+		{
+			#if UNITY_WINRT  
+			//System.IO do not compile exist on WinRT, so we also need a compilation ifdef
+			#else
+			try {
 				
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            #if UNITY_WINRT  
-                //System.IO do not compile exist on WinRT, so we also need a compilation ifdef
-            #else
-            try {
-                
-                System.IO.File.Copy(Application.streamingAssetsPath + "/SamplePoses.xml", Application.persistentDataPath + "/SamplePoses.xml",true);
-            } catch (Exception ex) {
-                Debug.LogError("copying SamplePoses.xml file to Data folder failed: " + ex.Message);
-            }
-            #endif
-        }
-        else if (Application.platform == RuntimePlatform.Android)
-        {
-            path = Application.persistentDataPath + "/";
-        }
-    
-        GeneratorSingleton.Instance.SetGestureRecognitionFile(path + "SamplePoses.xml");
-    }
+				System.IO.File.Copy(Application.streamingAssetsPath + "/SamplePoses.xml", Application.persistentDataPath + "/SamplePoses.xml",true);
+			} catch (Exception ex) {
+				Debug.LogError("copying SamplePoses.xml file to Data folder failed: " + ex.Message);
+			}
+			#endif
+		}
+		else if (Application.platform == RuntimePlatform.Android)
+		{
+			path = Application.persistentDataPath + "/";
+		}
+		
+		GeneratorSingleton.Instance.SetGestureRecognitionFile(path + "SamplePoses.xml");
+	}
 	
 	private PlatformType GetPlatformType()
 	{
@@ -202,7 +202,7 @@ public class SdkManager : MonoBehaviour {
 			platform = PlatformType.MAC;
 		return platform;
 	}
-
+	
 	private void MyAllFramesReadyEventHandler(object sender, AllFramesReadyEventArgs e)
 	{
 		try
@@ -251,3 +251,5 @@ public class SdkManager : MonoBehaviour {
 		}
 	}
 }
+
+

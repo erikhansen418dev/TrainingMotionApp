@@ -25,9 +25,18 @@ namespace com.erik.training.controller{
 			GetUserInfo ();	
 		}
 
-		void HandleOnEnterExercise (int index)
+		void HandleOnEnterExercise (ExerciseData exData)
 		{
+			HomeView.OnEnterExercise -= HandleOnEnterExercise;
 
+			Debug.Log (exData.ToString ());
+
+			DataController.OnUpdated += HandleOnDataUpdated;
+			DataController.Instance.SetData (exData);
+		}
+
+		void HandleOnDataUpdated ()
+		{
 			nextState = typeof(RS_Tutorial);
 			GoNext ();
 		}

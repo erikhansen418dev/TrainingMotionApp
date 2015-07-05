@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Extreme Reality\WarningsUpdate.cs" />
      <Compile Include="Assets\Scripts\Loading Screen\CS_Loading.cs" />
      <Compile Include="Assets\Scripts\Main\Controller\DataController.cs" />
+     <Compile Include="Assets\Scripts\Main\Controller\ERSdkManager.cs" />
      <Compile Include="Assets\Scripts\Main\Controller\RunState\RS_Calibration.cs" />
      <Compile Include="Assets\Scripts\Main\Controller\RunState\RS_Exercise.cs" />
      <Compile Include="Assets\Scripts\Main\Controller\RunState\RS_Home.cs" />
