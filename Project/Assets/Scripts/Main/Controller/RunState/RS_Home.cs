@@ -37,6 +37,8 @@ namespace com.erik.training.controller{
 
 		void HandleOnDataUpdated ()
 		{
+			DataController.OnUpdated -= HandleOnDataUpdated;
+
 			nextState = typeof(RS_Tutorial);
 			GoNext ();
 		}

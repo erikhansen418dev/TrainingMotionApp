@@ -92,13 +92,13 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.4/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Vectrosity">
- <HintPath>E:/Work/Training Motion/Project/Assets/Plugins/Vectrosity.dll</HintPath>
+ <HintPath>E:/Work/TrainingMotionApp/Project/Assets/Plugins/Vectrosity.dll</HintPath>
  </Reference>
  <Reference Include="Xtr3D.Net">
- <HintPath>E:/Work/Training Motion/Project/Assets/Plugins/Xtr3D.Net.dll</HintPath>
+ <HintPath>E:/Work/TrainingMotionApp/Project/Assets/Plugins/Xtr3D.Net.dll</HintPath>
  </Reference>
  <Reference Include="Xtr3D.Net.ExtremeMotion">
- <HintPath>E:/Work/Training Motion/Project/Assets/Plugins/Xtr3D.Net.ExtremeMotion.dll</HintPath>
+ <HintPath>E:/Work/TrainingMotionApp/Project/Assets/Plugins/Xtr3D.Net.ExtremeMotion.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
