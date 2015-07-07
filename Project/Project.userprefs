@@ -1,14 +1,24 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main\Controller\RunState\RS_Register.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main\View\HomeView.cs">
     <Files>
-      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Home.cs" Line="40" Column="33" />
-      <File FileName="Assets\Scripts\Main\main.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Init.cs" Line="27" Column="3" />
+      <File FileName="Assets\Scripts\Loading Screen\CS_Loading.cs" Line="27" Column="3" />
+      <File FileName="Assets\Scripts\Main\View\FramePanelView.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Home.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\main.cs" Line="36" Column="34" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Init.cs" Line="43" Column="26" />
       <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Tutorial.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Summary.cs" Line="21" Column="4" />
-      <File FileName="Assets\Scripts\Main\Controller\ERSdkManager.cs" Line="37" Column="7" />
-      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Register.cs" Line="34" Column="4" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Summary.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Controller\ERSdkManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Register.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Model\Constants.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Model\Define.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Model\ExerciseData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Model\UserData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\View\ExerciseEntry.cs" Line="39" Column="4" />
+      <File FileName="Assets\Scripts\Main\View\HomeView.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\View\RegisterView.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Util\RunState.cs" Line="14" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

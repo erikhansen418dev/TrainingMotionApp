@@ -5,15 +5,14 @@ public class CS_Loading : MonoBehaviour {
 
 	#region PUBLIC VARIABLES
 
-	public string strPathLoadingImage;
 	public string strNameNextScene;
+	public Texture2D textureLoadingImage;
 
 	#endregion  // PUBLIC VARIABLES
 
 
 	#region PRIVATE VARIABLES
 
-	private Texture2D textureLoadingImage;
 	private AsyncOperation asyncLoading;
 	private bool isLoading;
 
@@ -22,10 +21,6 @@ public class CS_Loading : MonoBehaviour {
 
 	#region // MOMOBEHAVIOR FUNCTIONS
 
-	void Awake()
-	{
-		textureLoadingImage = Resources.Load<Texture2D>(strPathLoadingImage);
-	}
 
 	// Use this for initialization
 	void Start () {
@@ -67,7 +62,6 @@ public class CS_Loading : MonoBehaviour {
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), textureLoadingImage, ScaleMode.StretchToFill); 
 		}
 	}
-
 
 	IEnumerator NewSceneAfterDelay(float delaySec)
 	{
