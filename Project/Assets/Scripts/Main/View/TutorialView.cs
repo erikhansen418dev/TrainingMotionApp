@@ -9,12 +9,15 @@ namespace com.erik.training.view{
 		public delegate void TutorialViewEventDelegate();
 		public static event TutorialViewEventDelegate OnPresentationCompleted;
 
-		private float timeCount = 3.0f;
+		private float timeCount = 5.0f;
+
+		public CircleTimer cirlceTimer;
 
 		// Use this for initialization
 		void Start () {
 
 			StartCoroutine("Timer");
+			cirlceTimer.StartCountTime (timeCount);
 			
 		}
 		
