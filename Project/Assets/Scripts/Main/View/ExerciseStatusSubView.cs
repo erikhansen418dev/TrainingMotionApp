@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using com.erik.training.controller;
 
 
 namespace com.erik.training.view
@@ -20,6 +21,11 @@ namespace com.erik.training.view
 		// Update is called once per frame
 		void Update () {
 			
+		}
+
+		public void SetImage(Sprite sprite)
+		{
+			imageStartPos.sprite = sprite;
 		}
 	}
 

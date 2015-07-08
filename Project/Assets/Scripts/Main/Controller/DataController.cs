@@ -35,6 +35,27 @@ namespace com.erik.training.controller{
 		{
 			return curData;
 		}
+
+		private void IncreaseRepetion()
+		{
+			curData.IncreaeRepetion ();
+		}
+
+		public void StartExerciseListener()
+		{
+			GesturesDetectionUpdate.OnPerformedOnce += HandleOnExercisePerformedOnce;
+
+		}
+
+		void HandleOnExercisePerformedOnce ()
+		{
+			IncreaseRepetion ();
+		}
+
+		public void StopExerciseListener()
+		{
+			GesturesDetectionUpdate.OnPerformedOnce -= HandleOnExercisePerformedOnce;
+		}
 		
 
 	}

@@ -5,10 +5,13 @@ namespace com.erik.training.model{
 
 	[System.Serializable]
 	public class ExerciseData {
-		
+
+		public string title;
+		public string description;
 		public string gestureFilePath;
-		public string StartPosImagePath;
-		public string EndPosImagePath;
+		public Sprite image;
+//		public string StartPosImagePath;
+//		public string EndPosImagePath;
 
 		private int repetition = 0;
 		private float duration = 0;
@@ -25,20 +28,37 @@ namespace com.erik.training.model{
 
 		public ExerciseData (ExerciseData data)
 		{
+			title = data.title;
+			description = data.description;
 			gestureFilePath = data.gestureFilePath;
-			StartPosImagePath = data.StartPosImagePath;
-			EndPosImagePath = data.EndPosImagePath;
+			image = data.image;
+//			StartPosImagePath = data.StartPosImagePath;
+//			EndPosImagePath = data.EndPosImagePath;
 
 			repetition = data.repetition;
 			duration = data.duration;
+
+		}
+
+		public void IncreaeRepetion ()
+		{
+			repetition ++;
 		}
 
 		public string ToString()
 		{
-			string exerciseData = string.Format ("GestureFilePath : {0}, StartPosImagePath : {1}, EndPosImagePath : {2}, Repetition : {3}, Duration : {4}",
-			                                     gestureFilePath, StartPosImagePath, EndPosImagePath, repetition, duration);  
+			string exerciseData = string.Format ("Title : {0}, Description : {1}, GestureFileName : {2}, ImageName : {3}, Repetition : {4}, Duration : {5}",
+			                                     title, description, gestureFilePath, image.name, repetition, duration);  
 			return exerciseData;
 		}
+
+		public void Init()
+		{
+
+			repetition = 0;
+			duration = 0f;
+		}
+
 	}
 
 }

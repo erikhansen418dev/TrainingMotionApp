@@ -55,7 +55,7 @@ namespace com.erik.training.controller
 			try
 			{
 				GeneratorSingleton.Instance.Initialize(GetPlatformType(), info);
-				SetGestureFile();
+//				SetGestureFile();
 			}
 			catch (InvalidLicenseException ex)
 			{
@@ -95,16 +95,13 @@ namespace com.erik.training.controller
 		
 		public void StartManager ()
 		{
-			Debug.Log("SDK Manager Start04");
 			
 			if (GeneratorSingleton.Instance.IsInitialized) {
 
-				Debug.Log("SDK Manager Start05");
 				string message = String.Empty;
 				try {
 					GeneratorSingleton.Instance.Start ();
 					message = "Camera found. Engine started.";
-					Debug.Log("SDK Manager Start06");
 					GeneratorSingleton.Instance.AllFramesReady += MyAllFramesReadyEventHandler;
 					if (OnReady != null)
 						OnReady ();
@@ -145,11 +142,7 @@ namespace com.erik.training.controller
 				|| Application.platform == RuntimePlatform.Android) {
 				OnApplicationPause (false);				
 			}
-		}
-			
-
-
-		
+		}		
 		
 		void OnApplicationPause(bool paused)
 		{
@@ -173,7 +166,7 @@ namespace com.erik.training.controller
 			}
 		}
 		
-		public void SetGestureFile(/*string fileName*/) {
+		public void SetGestureFile(string fileName) {
 			string path = String.Empty;
 			
 			if (Application.platform == RuntimePlatform.IPhonePlayer)
@@ -194,7 +187,12 @@ namespace com.erik.training.controller
 				path = Application.persistentDataPath + "/";
 			}
 			
-			GeneratorSingleton.Instance.SetGestureRecognitionFile(path + "SamplePoses.xml");
+			GeneratorSingleton.Instance.SetGestureRecognitionFile(path + fileName);
+
+			Debug.Log (" Gesture : fileName : " + fileName);
+
+			if (OnReady != null)
+				OnReady ();
 		}
 		
 		private PlatformType GetPlatformType()

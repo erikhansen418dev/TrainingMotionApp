@@ -8,7 +8,7 @@ public class main : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		TempClearHistory ();
+//		TempClearHistory ();
 		InitER ();
 
 	}
@@ -32,6 +32,7 @@ public class main : MonoBehaviour {
 	void HandleOnERSdkReady ()
 	{
 		Debug.Log("ERSdk Initialized... Ready..");
+		ERSdkManager.OnReady -= HandleOnERSdkReady;
 
 		RunState.nextState = typeof(RS_Init);
 		RunState.Done ();	

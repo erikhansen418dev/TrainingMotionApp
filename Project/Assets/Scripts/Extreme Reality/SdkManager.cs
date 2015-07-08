@@ -187,7 +187,7 @@ public class SdkManager : MonoBehaviour {
 			path = Application.persistentDataPath + "/";
 		}
 		
-		GeneratorSingleton.Instance.SetGestureRecognitionFile(path + "SamplePoses.xml");
+		GeneratorSingleton.Instance.SetGestureRecognitionFile(path + "Pose4.xml");
 	}
 	
 	private PlatformType GetPlatformType()

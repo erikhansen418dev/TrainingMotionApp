@@ -53,10 +53,11 @@
      <Compile Include="Assets\Scripts\Extreme Reality\FrameRateCalc.cs" />
      <Compile Include="Assets\Scripts\Extreme Reality\GesturesUpdate.cs" />
      <Compile Include="Assets\Scripts\Extreme Reality\OrientationManager.cs" />
-     <Compile Include="Assets\Scripts\Extreme Reality\RgbTextureUpdate.cs" />
      <Compile Include="Assets\Scripts\Extreme Reality\SdkManager.cs" />
      <Compile Include="Assets\Scripts\Extreme Reality\SkeletonDrawer.cs" />
      <Compile Include="Assets\Scripts\Extreme Reality\TrackingStateUpdate.cs" />
+     <Compile Include="Assets\Scripts\Extreme Reality\Training\GesturesDetectionUpdate.cs" />
+     <Compile Include="Assets\Scripts\Extreme Reality\Training\RgbTextureUpdate.cs" />
      <Compile Include="Assets\Scripts\Extreme Reality\WarningsUpdate.cs" />
      <Compile Include="Assets\Scripts\Loading Screen\CS_Loading.cs" />
      <Compile Include="Assets\Scripts\Main\Controller\DataController.cs" />

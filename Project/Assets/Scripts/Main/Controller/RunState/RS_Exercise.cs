@@ -13,14 +13,22 @@ namespace com.erik.training.controller
 
 			ViewController.OnReady += HandleOnExerciseViewReady;
 			ViewController.Instance.SetViewState (ViewState.VS_EXERCISE);
-			
 		}
 
 		void HandleOnExerciseViewReady ()
 		{
 			ViewController.OnReady -= HandleOnExerciseViewReady;
-			ExerciseView.OnFinish += HandleOnExerciseFinish;
+			ERSdkManager.OnReady += HandleOnERSDKReady;
 
+			string gestureFileName = DataController.Instance.GetData ().gestureFilePath;
+			ERSdkManager.Instance.SetGestureFile (gestureFileName);
+		}
+
+		void HandleOnERSDKReady ()
+		{
+			Debug.Log("ERSDK Gesture File Set... Ready");
+			ERSdkManager.OnReady -= HandleOnERSDKReady;
+			ExerciseView.OnFinish += HandleOnExerciseFinish;
 		}
 
 		void HandleOnExerciseFinish ()
