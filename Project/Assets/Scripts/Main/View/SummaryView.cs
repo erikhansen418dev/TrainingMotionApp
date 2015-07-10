@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using com.erik.training.model;
+using com.erik.training.controller;
 
 
 namespace com.erik.training.view{
@@ -17,6 +19,7 @@ namespace com.erik.training.view{
 		// Use this for initialization
 		void Start () {
 			buttonHome.onClick.AddListener (OnButtonHome);
+			ShowExerciseResults ();
 		}
 		
 		// Update is called once per frame
@@ -29,6 +32,14 @@ namespace com.erik.training.view{
 			Debug.Log("Button Home Click");
 			if (OnGOHome != null)
 				OnGOHome ();
+		}
+
+		void ShowExerciseResults()
+		{
+			ExerciseData exeData = DataController.Instance.GetData ();
+			resultSubview.SetImage (exeData.image);
+			resultSubview.SetDuration (exeData.duration);
+			resultSubview.SetRepetition (exeData.repetition);
 		}
 	}
 

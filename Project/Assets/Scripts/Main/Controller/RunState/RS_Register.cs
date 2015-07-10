@@ -19,6 +19,7 @@ namespace com.erik.training.controller{
 		{
 			ViewController.OnReady 	-= HandleOnRegisterViewReady;
 			RegisterView.OnRegisterUserSuccess 	+= HandleOnRegisterUserSuccess;
+			AddFramePanelViewEvents ();
 		}
 		
 		void HandleOnRegisterUserSuccess (User userInfo)
@@ -26,22 +27,55 @@ namespace com.erik.training.controller{
 			RegisterUser (userInfo);
 
 			RegisterView.OnRegisterUserSuccess 	-= HandleOnRegisterUserSuccess;
+			RemoveFramePanelVeiwEvents ();
+
 			nextState = typeof(RS_Home);
 			GoNext ();
 		}
 		
-		private void RegisterUser(User user)
+		private void RegisterUser(User _user)
 		{
 			Debug.Log ("Registering User Info ...");
 			
-			PlayerPrefs.SetString (Constants.USER_FIRST_NAME_KEY, user.firstName);
-			PlayerPrefs.SetString (Constants.USER_LAST_NAME_KEY, user.lastName);
-			PlayerPrefs.SetString (Constants.USER_EMAIL_KEY, user.email);
+			PlayerPrefs.SetString (Constants.USER_FIRST_NAME_KEY, _user.firstName);
+			PlayerPrefs.SetString (Constants.USER_LAST_NAME_KEY, _user.lastName);
+			PlayerPrefs.SetString (Constants.USER_EMAIL_KEY, _user.email);
 			
-			PlayerPrefs.SetInt (Constants.APP_USE_STATE_KEY, 1);	
+			PlayerPrefs.SetInt (Constants.APP_USE_STATE_KEY, 1);
+
+			User user = new User (); 	
+			user.firstName 	= PlayerPrefs.GetString (Constants.USER_FIRST_NAME_KEY);
+			user.lastName 	= PlayerPrefs.GetString (Constants.USER_LAST_NAME_KEY);
+			user.email		= PlayerPrefs.GetString (Constants.USER_EMAIL_KEY);
+			
+			UserData.SetUser (user);
 			
 			Debug.Log ("User Registered ...");
 		}
+
+
+		/// <summary>
+		/// 		/// </summary>
+		public void AddFramePanelViewEvents()
+		{
+			FramePanelView.OnAppExit += HandleOnAppExit;
+		}
+		
+		public void RemoveFramePanelVeiwEvents()		{
+
+			FramePanelView.OnAppExit -= HandleOnAppExit;			
+		}
+		
+		void HandleOnAppExit ()
+		{
+			RegisterView.OnRegisterUserSuccess 	-= HandleOnRegisterUserSuccess;		
+			RemoveFramePanelVeiwEvents ();
+
+			Debug.Log("APP Quit");
+			Application.Quit ();
+		}		
+
+		//////////
 		
 	}
 

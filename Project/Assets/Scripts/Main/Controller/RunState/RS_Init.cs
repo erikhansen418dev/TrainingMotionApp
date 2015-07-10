@@ -47,8 +47,25 @@ namespace com.erik.training.controller{
 		
 		private void OnNoFirstTime()
 		{
+			GetUserInfo ();
+
 			nextState = typeof(RS_Home);
 			GoNext ();
+		}
+
+		void GetUserInfo()
+		{
+			Debug.Log ("Getting UserInfo ...");
+			
+			User user = new User (); 	
+			user.firstName 	= PlayerPrefs.GetString (Constants.USER_FIRST_NAME_KEY);
+			user.lastName 	= PlayerPrefs.GetString (Constants.USER_LAST_NAME_KEY);
+			user.email		= PlayerPrefs.GetString (Constants.USER_EMAIL_KEY);
+			
+			UserData.SetUser (user);
+			
+			Debug.Log("Finished Getting UserInfo...");
+			Debug.Log ("user info : " + UserData.user.ToString());
 		}
 	}
 

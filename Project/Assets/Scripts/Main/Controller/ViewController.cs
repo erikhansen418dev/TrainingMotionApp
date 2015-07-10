@@ -55,46 +55,60 @@ namespace com.erik.training.controller{
 				Destroy (currentPanel);
 			
 			Object _panelResource = null;
-
 			bool bShowCameraFeed = false;
+			bool bEnableUserInfoButton = false;
+			bool bShowHomeButton = false;
+
 			switch (newState) {
 				
 			case ViewState.VS_CALIBRATION:
 				
 				_panelResource = Resources.Load<Object>(Constants.PATH_CALIBRATION_VIEW_KEY);
 				screenTitle = Constants.TITLE_CALIBRATION_VIEW;
+
 				bShowCameraFeed = true;
+				bShowHomeButton = true;
 				break;
 
 			case ViewState.VS_EXERCISE:
 				
 				_panelResource = Resources.Load<Object>(Constants.PATH_EXCERCISE_VIEW_KEY);
 				screenTitle = Constants.TITLE_EXCERCISE_VIEW;
+
 				bShowCameraFeed = true;
+				bShowHomeButton = true;
 				break;
 				
 			case ViewState.VS_HOME:
 				
 				_panelResource = Resources.Load<Object>(Constants.PATH_HOME_VIEW_KEY);
 				screenTitle = Constants.TITLE_HOME_VIEW;
+
+				bEnableUserInfoButton = true;
+				frameView.SetUserInfo (UserData.user.firstName +" " + UserData.user.lastName);
 				break;
 				
 			case ViewState.VS_REGISTER:
 				
 				_panelResource = Resources.Load<Object>(Constants.PATH_REGISTER_VIEW_KEY);
 				screenTitle = Constants.TITLE_REGISTER_VIEW;
+				frameView.SetUserInfo ("User Info");
 				break;
 				
 			case ViewState.VS_SUMMARY:
 				
 				_panelResource = Resources.Load<Object>(Constants.PATH_SUMMARY_VIEW_KEY);
 				screenTitle = Constants.TITLE_SUMMARY_VIEW;
+
+				bShowHomeButton = true;
 				break;
 				
 			case ViewState.VS_TUTORIAL:
 				
 				_panelResource = Resources.Load<Object>(Constants.PATH_TUTORIAL_VIEW_KEY);
 				screenTitle = Constants.TITLE_TUTORIAL_VIEW;
+
+				bShowHomeButton = true;
 				break;
 				
 			default:
@@ -104,6 +118,8 @@ namespace com.erik.training.controller{
 			currentPanel = InstantiatePanel (_panelResource);
 			frameView.SetTitle (screenTitle);
 			frameView.ActivateCameraFeed(bShowCameraFeed);
+			frameView.EnableUserInfoButton (bEnableUserInfoButton);
+			frameView.ShowHomeButton (bShowHomeButton);
 			
 			if (OnReady != null) {
 				OnReady ();		

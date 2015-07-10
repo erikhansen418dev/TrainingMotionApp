@@ -20,15 +20,60 @@ namespace com.erik.training.controller
 		void HandleOnSummaryViewReady ()
 		{
 			ViewController.OnReady -= HandleOnSummaryViewReady;
-			SummaryView.OnGOHome += HandleOnGOHome;
+			SummaryView.OnGOHome += HandleOnGoHome;
+			AddFramePanelViewEvents ();
 		}
 
-		void HandleOnGOHome ()
+/*		void HandleOnGOHome ()
 		{
 			SummaryView.OnGOHome -= HandleOnGOHome;
+			RemoveFramePanelVeiwEvents ();
+			nextState = typeof(RS_Home);
+			GoNext ();
+		}
+*/
+
+		/// <summary>
+		/// 		/// </summary>
+		public void AddFramePanelViewEvents()
+		{
+			FramePanelView.OnGoHome += HandleOnGoHome;
+			FramePanelView.OnGoUserInfo += HandleOnGoUserInfo;
+			FramePanelView.OnAppExit += HandleOnAppExit;
+		}
+		
+		public void RemoveFramePanelVeiwEvents()
+		{
+			FramePanelView.OnGoHome -= HandleOnGoHome;
+			FramePanelView.OnGoUserInfo -= HandleOnGoUserInfo;
+			FramePanelView.OnAppExit -= HandleOnAppExit;
+			
+		}
+		
+		void HandleOnAppExit ()
+		{
+			SummaryView.OnGOHome -= HandleOnGoHome;
+			RemoveFramePanelVeiwEvents ();
+		}
+		
+		void HandleOnGoUserInfo ()
+		{
+			SummaryView.OnGOHome -= HandleOnGoHome;
+			RemoveFramePanelVeiwEvents ();
+			
+			nextState = typeof(RS_Register);
+			GoNext ();
+		}
+		
+		void HandleOnGoHome ()
+		{
+			SummaryView.OnGOHome -= HandleOnGoHome;
+			RemoveFramePanelVeiwEvents ();
+			
 			nextState = typeof(RS_Home);
 			GoNext ();
 		}	
+		//////////
 		
 	}
 }

@@ -29,17 +29,65 @@ namespace com.erik.training.controller
 			Debug.Log("ERSDK Gesture File Set... Ready");
 			ERSdkManager.OnReady -= HandleOnERSDKReady;
 			ExerciseView.OnFinish += HandleOnExerciseFinish;
+			AddFramePanelViewEvents ();
 		}
 
-		void HandleOnExerciseFinish ()
+		void HandleOnExerciseFinish (int count, float duration)
 		{
+			RemoveFramePanelVeiwEvents ();
 			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+
+			DataController.OnUpdated += HandleOnExerciseDataUpdated;
+			DataController.Instance.UpdateExerciseData (count, duration);
+		}
+
+		void HandleOnExerciseDataUpdated ()
+		{
+			DataController.OnUpdated -= HandleOnExerciseDataUpdated;
 			nextState = typeof(RS_Summary);
 			GoNext ();
+		}	
 
+		/// <summary>
+		/// 		/// </summary>
+		public void AddFramePanelViewEvents()
+		{
+			FramePanelView.OnGoHome += HandleOnGoHome;
+			FramePanelView.OnGoUserInfo += HandleOnGoUserInfo;
+			FramePanelView.OnAppExit += HandleOnAppExit;
 		}
-		
 
+		public void RemoveFramePanelVeiwEvents()
+		{
+			FramePanelView.OnGoHome -= HandleOnGoHome;
+			FramePanelView.OnGoUserInfo -= HandleOnGoUserInfo;
+			FramePanelView.OnAppExit -= HandleOnAppExit;			
+		}
+
+		void HandleOnAppExit ()
+		{
+			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+			RemoveFramePanelVeiwEvents ();
+		}
+
+		void HandleOnGoUserInfo ()
+		{
+			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+			RemoveFramePanelVeiwEvents ();
+
+			nextState = typeof(RS_Register);
+			GoNext ();
+		}
+
+		void HandleOnGoHome ()
+		{
+			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+			RemoveFramePanelVeiwEvents ();
+
+			nextState = typeof(RS_Home);
+			GoNext ();
+		}	
+		//////////
 	}
 
 }

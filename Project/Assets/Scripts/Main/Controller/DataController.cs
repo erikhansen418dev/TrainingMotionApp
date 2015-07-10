@@ -56,7 +56,15 @@ namespace com.erik.training.controller{
 		{
 			GesturesDetectionUpdate.OnPerformedOnce -= HandleOnExercisePerformedOnce;
 		}
-		
+
+		public void UpdateExerciseData(int count, float duration)
+		{
+			curData.duration = duration;
+			curData.repetition = count;
+
+			if (OnUpdated != null)
+				OnUpdated ();
+		}
 
 	}
 

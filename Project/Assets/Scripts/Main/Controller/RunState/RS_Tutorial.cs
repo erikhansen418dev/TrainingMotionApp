@@ -19,12 +19,15 @@ namespace com.erik.training.controller{
 		{
 			ViewController.OnReady -= HandleOnTutorialViewReady;
 			TutorialView.OnPresentationCompleted += HandleOnTutorialPresentationCompleted;
+			AddFramePanelViewEvents ();
 			
 		}
 
 		void HandleOnTutorialPresentationCompleted ()
 		{
 			TutorialView.OnPresentationCompleted -= HandleOnTutorialPresentationCompleted;
+			RemoveFramePanelVeiwEvents ();
+
 			nextState = typeof(RS_Calibration);
 			GoNext ();
 		}
@@ -33,6 +36,49 @@ namespace com.erik.training.controller{
 		void Update () {
 			
 		}
+
+
+		/// <summary>
+		/// 		/// </summary>
+		public void AddFramePanelViewEvents()
+		{
+			FramePanelView.OnGoHome += HandleOnGoHome;
+			FramePanelView.OnGoUserInfo += HandleOnGoUserInfo;
+			FramePanelView.OnAppExit += HandleOnAppExit;
+		}
+		
+		public void RemoveFramePanelVeiwEvents()
+		{
+			FramePanelView.OnGoHome -= HandleOnGoHome;
+			FramePanelView.OnGoUserInfo -= HandleOnGoUserInfo;
+			FramePanelView.OnAppExit -= HandleOnAppExit;
+			
+		}
+		
+		void HandleOnAppExit ()
+		{
+			TutorialView.OnPresentationCompleted -= HandleOnTutorialPresentationCompleted;
+			RemoveFramePanelVeiwEvents ();
+		}
+		
+		void HandleOnGoUserInfo ()
+		{
+			TutorialView.OnPresentationCompleted -= HandleOnTutorialPresentationCompleted;
+			RemoveFramePanelVeiwEvents ();
+			
+			nextState = typeof(RS_Register);
+			GoNext ();
+		}
+		
+		void HandleOnGoHome ()
+		{
+			TutorialView.OnPresentationCompleted -= HandleOnTutorialPresentationCompleted;
+			RemoveFramePanelVeiwEvents ();
+			
+			nextState = typeof(RS_Home);
+			GoNext ();
+		}	
+		//////////
 	}
 
 }

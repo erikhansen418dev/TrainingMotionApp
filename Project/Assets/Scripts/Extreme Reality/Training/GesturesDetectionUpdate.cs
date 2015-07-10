@@ -20,22 +20,9 @@ public class GesturesDetectionUpdate : MonoBehaviour {
 	private float totalTime = 0;
 
 
-//	private StringBuilder gesturesSB = new StringBuilder();
-
 	private bool strokeCompleted = true;
 	private bool inStroke = false;
 
-/*    private Dictionary<int, GestureMessage> gestureMessages = new Dictionary<int, GestureMessage> {};  
-	private Dictionary<BaseGesture.GestureType, int> gestureTypeDelay = new Dictionary<BaseGesture.GestureType, int>() { 
-		{BaseGesture.GestureType.STATIC_POSITION, 1},
-		{BaseGesture.GestureType.HEAD_POSITION, 1},
-		{BaseGesture.GestureType.SWIPE, 40},
-		{BaseGesture.GestureType.WINGS, 5},
-		{BaseGesture.GestureType.SEQUENCE, 30},
-		{BaseGesture.GestureType.UP, 40},
-		{BaseGesture.GestureType.DOWN, 40},
-		{BaseGesture.GestureType.RELATIVE_HOT_SPOT, 10}};
-*/
 
 	//code sample of getting gestures from xtr3d engine. These gestures are defined inside SamplePoses.xml
 	private void MyGestureFrameReadyEventHandler(object sender, GesturesFrameReadyEventArgs e)
@@ -76,12 +63,8 @@ public class GesturesDetectionUpdate : MonoBehaviour {
 
 	void OnOneStrokeCompeted()
 	{
-
 		count++;
 		Debug.Log ("OnOneStrokeCompeted  : " + count);
-
-//		if (OnPerformedOnce != null)
-//			OnPerformedOnce ();
 	}
 
 	void OnApplicationPause(bool paused) 

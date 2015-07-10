@@ -31,6 +31,9 @@ namespace com.erik.training.model{
 		public const string TITLE_EXCERCISE_VIEW 	= "Exercise";
 		public const string TITLE_SUMMARY_VIEW 		= "Summary";
 		public const string TITLE_TUTORIAL_VIEW 	= "Tutorial";
+
+		public static Color COLOR_UI_SKY = new Color(169,215,224);
+		public static Color COLOR_UI_PURPLE = new Color(100,50,100);
 		
 	}
 

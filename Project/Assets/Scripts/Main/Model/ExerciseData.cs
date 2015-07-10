@@ -13,8 +13,8 @@ namespace com.erik.training.model{
 //		public string StartPosImagePath;
 //		public string EndPosImagePath;
 
-		private int repetition = 0;
-		private float duration = 0;
+		public int repetition = 0;
+		public float duration = 0;
 		
 		public ExerciseData()
 		{

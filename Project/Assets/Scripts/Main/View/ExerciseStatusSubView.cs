@@ -27,6 +27,21 @@ namespace com.erik.training.view
 		{
 			imageStartPos.sprite = sprite;
 		}
+
+		public void SetRepetition(int count)
+		{
+			textRepetitions.text = count.ToString();
+		}
+
+		public void SetDuration(float totalTime)
+		{
+			totalTime += Time.deltaTime;
+			int seconds = ((int)totalTime) % 60;
+			int minutes = ((int)totalTime) / 60;
+			string time = minutes + ":" + seconds;
+			
+			textDuration.text = time;
+		}
 	}
 
 }

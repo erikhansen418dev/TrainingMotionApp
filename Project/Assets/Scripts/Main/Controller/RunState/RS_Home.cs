@@ -21,17 +21,20 @@ namespace com.erik.training.controller{
 		{
 			ViewController.OnReady -= HandleOnHomeViewReady;
 			HomeView.OnEnterExercise += HandleOnEnterExercise;
+			AddFramePanelViewEvents ();
 			
-			GetUserInfo ();	
+//			GetUserInfo ();	
 		}
 
 		void HandleOnEnterExercise (ExerciseData exData)
 		{
 			HomeView.OnEnterExercise -= HandleOnEnterExercise;
+			RemoveFramePanelVeiwEvents ();
 
 			Debug.Log (exData.ToString ());
 
 			DataController.OnUpdated += HandleOnDataUpdated;
+
 			DataController.Instance.SetData (exData);
 		}
 
@@ -43,7 +46,7 @@ namespace com.erik.training.controller{
 			GoNext ();
 		}
 		
-		void GetUserInfo()
+/*		void GetUserInfo()
 		{
 			Debug.Log ("Getting UserInfo ...");
 			
@@ -57,6 +60,42 @@ namespace com.erik.training.controller{
 			Debug.Log("Finished Getting UserInfo...");
 			Debug.Log ("user info : " + UserData.user.ToString());
 		}
+*/
+
+		/// <summary>
+		/// 		/// </summary>
+		public void AddFramePanelViewEvents()
+		{
+			FramePanelView.OnGoUserInfo += HandleOnGoUserInfo;
+			FramePanelView.OnAppExit += HandleOnAppExit;
+		}
+		
+		public void RemoveFramePanelVeiwEvents()
+		{
+			FramePanelView.OnGoUserInfo -= HandleOnGoUserInfo;
+			FramePanelView.OnAppExit -= HandleOnAppExit;
+			
+		}
+		
+		void HandleOnAppExit ()
+		{
+			HomeView.OnEnterExercise -= HandleOnEnterExercise;
+			RemoveFramePanelVeiwEvents ();
+
+			Debug.Log("APP Quit");
+			Application.Quit ();
+		}
+		
+		void HandleOnGoUserInfo ()
+		{
+			HomeView.OnEnterExercise -= HandleOnEnterExercise;
+			RemoveFramePanelVeiwEvents ();
+			
+			nextState = typeof(RS_Register);
+			GoNext ();
+		}		
+
+		//////////
 		
 		
 	}

@@ -3,7 +3,7 @@
   <Gesture>
     <Id>1</Id>
     <Class>StaticPosition</Class>
-    <Name>1</Name>
+    <Name>StartPose</Name>
     <State>Enabled</State>
     <Side>Both</Side>
     <Type>1</Type>
@@ -31,27 +31,27 @@
   <Gesture>
     <Id>2</Id>
     <Class>StaticPosition</Class>
-    <Name>2</Name>
+    <Name>EndPose</Name>
     <State>Enabled</State>
     <Side>Both</Side>
     <Type>1</Type>
     <RightHand>
       <UpperArm>
-        <Angle>-28</Angle>
+        <Angle>-35</Angle>
         <Tolerance>30</Tolerance>
       </UpperArm>
       <Forearm>
-        <Angle>-166</Angle>
+        <Angle>-160</Angle>
         <Tolerance>30</Tolerance>
       </Forearm>
     </RightHand>
     <LeftHand>
       <UpperArm>
-        <Angle>-21</Angle>
+        <Angle>-35</Angle>
         <Tolerance>30</Tolerance>
       </UpperArm>
       <Forearm>
-        <Angle>-164</Angle>
+        <Angle>-160</Angle>
         <Tolerance>30</Tolerance>
       </Forearm>
     </LeftHand>

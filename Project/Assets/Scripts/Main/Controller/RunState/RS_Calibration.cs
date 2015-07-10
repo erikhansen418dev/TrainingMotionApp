@@ -19,27 +19,72 @@ namespace com.erik.training.controller{
 		{
 			ViewController.OnReady -= HandleOnCalibrationViewReady;
 
-			CalibrationView.OnGoHome += HandleOnGoHome;
+//			CalibrationView.OnGoHome += HandleOnGoHome;
 			CalibrationView.OnCalibrationSuccess += HandleOnCalibrationSuccess;		
+			AddFramePanelViewEvents ();
 		}
 
 		void HandleOnCalibrationSuccess ()
 		{
 			CalibrationView.OnCalibrationSuccess -= HandleOnCalibrationSuccess;
-			CalibrationView.OnGoHome -= HandleOnGoHome;
+//			CalibrationView.OnGoHome -= HandleOnGoHome;
+			RemoveFramePanelVeiwEvents ();
 
 			nextState = typeof(RS_Exercise);
 			GoNext ();
 		}
 
-		private void HandleOnGoHome()
+/*		private void HandleOnGoHome()
 		{
 			CalibrationView.OnCalibrationSuccess -= HandleOnCalibrationSuccess;
 			CalibrationView.OnGoHome -= HandleOnGoHome;
 
 			nextState = typeof(RS_Home);
 			GoNext ();
+		}
+*/
+
+		/// <summary>
+		/// 		/// </summary>
+		public void AddFramePanelViewEvents()
+		{
+			FramePanelView.OnGoHome += HandleOnGoHome;
+			FramePanelView.OnGoUserInfo += HandleOnGoUserInfo;
+			FramePanelView.OnAppExit += HandleOnAppExit;
+		}
+		
+		public void RemoveFramePanelVeiwEvents()
+		{
+			FramePanelView.OnGoHome -= HandleOnGoHome;
+			FramePanelView.OnGoUserInfo -= HandleOnGoUserInfo;
+			FramePanelView.OnAppExit -= HandleOnAppExit;
+			
+		}
+		
+		void HandleOnAppExit ()
+		{
+			CalibrationView.OnCalibrationSuccess -= HandleOnCalibrationSuccess;
+			RemoveFramePanelVeiwEvents ();
+		}
+		
+		void HandleOnGoUserInfo ()
+		{
+			CalibrationView.OnCalibrationSuccess -= HandleOnCalibrationSuccess;
+			RemoveFramePanelVeiwEvents ();
+			
+			nextState = typeof(RS_Register);
+			GoNext ();
+		}
+		
+		void HandleOnGoHome ()
+		{
+			CalibrationView.OnCalibrationSuccess -= HandleOnCalibrationSuccess;
+			RemoveFramePanelVeiwEvents ();
+			
+			nextState = typeof(RS_Home);
+			GoNext ();
 		}	
+		//////////
 
 	}
 
