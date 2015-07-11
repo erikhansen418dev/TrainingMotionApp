@@ -15,7 +15,10 @@ namespace com.erik.training.view
 		
 		public delegate void ExerciseEventDelegate(int count, float duration);
 		public static event ExerciseEventDelegate OnFinish;	
-		
+		public static event ExerciseEventDelegate OnGoCalibration;
+
+		public ExercisePopupView popupView;
+
 		public ExerciseStatusSubView statusSubview;
 		public Button buttonFinish;
 
@@ -30,11 +33,16 @@ namespace com.erik.training.view
 		
 		private bool strokeCompleted = true;
 		private bool inStroke = false;
+		private bool isTraining = false;
+
+		private TrackingState lastEngineState = TrackingState.Tracked;
+		private TrackingState currentEngineState = TrackingState.Tracked;
 		
 		// Use this for initialization
 		void Start () {
 
 			ExtremeMotionEventsManager.MyGesturesFrameReadyHandler += MyGestureFrameReadyEventHandler;
+			ExtremeMotionEventsManager.MyDataFrameReadyHandler += MyDataFrameReadyEventHandler;
 
 			buttonFinish.onClick.AddListener (OnButtonFinish);
 			Init ();
@@ -74,11 +82,35 @@ namespace com.erik.training.view
 				}   
 				
 			}
-		}
+		}	
 
 		
 		// Update is called once per frame
 		void Update () {
+
+			if (! isTraining) {
+				
+				return;
+			}
+
+			if(lastEngineState != currentEngineState)
+			{
+				currentEngineState = lastEngineState;
+				
+				switch (currentEngineState) {
+					
+				case  TrackingState.Tracked:
+					break;
+				case  TrackingState.Calibrating:
+					break;
+				case TrackingState.NotTracked:
+					OnLostTracking();
+					break;
+				default:
+					break;
+				}
+			}
+
 
 			textRepetition.text = count.ToString();
 			
@@ -88,6 +120,44 @@ namespace com.erik.training.view
 			string time = minutes + ":" + seconds;
 			
 			textDuration.text = time;
+		}
+
+
+		private void MyDataFrameReadyEventHandler(object sender, DataFrameReadyEventArgs e)
+		{
+			using (DataFrame dataFrame = e.OpenFrame() as DataFrame)
+			{
+				if (dataFrame != null)
+				{
+					lastEngineState = dataFrame.Skeletons[0].TrackingState;
+				}
+			}
+		}
+
+		void OnLostTracking()
+		{
+			Debug.Log("Tracking Lost");
+
+			popupView.OnCloseWith += HandleOnPopupCloseWith;
+			popupView.gameObject.SetActive (true);
+
+			StopTraining();
+		}
+
+		void HandleOnPopupCloseWith (bool bForCalibrate)
+		{
+			popupView.OnCloseWith -= HandleOnPopupCloseWith;
+			popupView.gameObject.SetActive(false);
+		
+			if (bForCalibrate) {			
+				Debug.Log("User is going to Calibration");
+				if(OnGoCalibration != null)
+					OnGoCalibration(count,totalTime);
+
+			} else {			
+				Debug.Log("User is going to Finish Exercise");
+			}
+			
 		}
 
 		void OnOneStrokeCompeted()
@@ -101,10 +171,12 @@ namespace com.erik.training.view
 		{
 			if (paused) {
 				ExtremeMotionEventsManager.MyGesturesFrameReadyHandler -= MyGestureFrameReadyEventHandler;
+				ExtremeMotionEventsManager.MyDataFrameReadyHandler -= MyDataFrameReadyEventHandler;
 			}
 			else 
 			{
 				ExtremeMotionEventsManager.MyGesturesFrameReadyHandler += MyGestureFrameReadyEventHandler;
+				ExtremeMotionEventsManager.MyDataFrameReadyHandler += MyDataFrameReadyEventHandler;
 			}
 		}
 		
@@ -113,6 +185,23 @@ namespace com.erik.training.view
 			exeData = DataController.Instance.GetData ();
 			Debug.Log (exeData.image.name);
 			statusSubview.SetImage (exeData.image);
+
+			count = exeData.repetition;
+			totalTime = exeData.duration;
+
+			popupView.gameObject.SetActive (false);
+
+			StartTraining ();
+		}
+
+		private void StopTraining()
+		{
+			isTraining = false;
+		}
+
+		private void StartTraining()
+		{
+			isTraining = true;
 		}
 		
 		public void OnButtonFinish()

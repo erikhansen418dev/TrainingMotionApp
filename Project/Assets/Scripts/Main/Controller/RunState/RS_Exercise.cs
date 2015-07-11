@@ -29,13 +29,28 @@ namespace com.erik.training.controller
 			Debug.Log("ERSDK Gesture File Set... Ready");
 			ERSdkManager.OnReady -= HandleOnERSDKReady;
 			ExerciseView.OnFinish += HandleOnExerciseFinish;
+			ExerciseView.OnGoCalibration += HandleOnGoCalibration;
 			AddFramePanelViewEvents ();
+		}
+
+		void HandleOnGoCalibration (int count, float duration)
+		{
+			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+			ExerciseView.OnGoCalibration -= HandleOnGoCalibration;
+			RemoveFramePanelVeiwEvents ();
+			
+//			DataController.OnUpdated += HandleOnExerciseDataUpdated;
+			DataController.Instance.UpdateExerciseData (count, duration);
+
+			nextState = typeof(RS_Calibration);
+			GoNext ();
 		}
 
 		void HandleOnExerciseFinish (int count, float duration)
 		{
-			RemoveFramePanelVeiwEvents ();
 			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+			ExerciseView.OnGoCalibration -= HandleOnGoCalibration;
+			RemoveFramePanelVeiwEvents ();
 
 			DataController.OnUpdated += HandleOnExerciseDataUpdated;
 			DataController.Instance.UpdateExerciseData (count, duration);
@@ -67,12 +82,14 @@ namespace com.erik.training.controller
 		void HandleOnAppExit ()
 		{
 			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+			ExerciseView.OnGoCalibration -= HandleOnGoCalibration;
 			RemoveFramePanelVeiwEvents ();
 		}
 
 		void HandleOnGoUserInfo ()
 		{
 			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+			ExerciseView.OnGoCalibration -= HandleOnGoCalibration;
 			RemoveFramePanelVeiwEvents ();
 
 			nextState = typeof(RS_Register);
@@ -82,6 +99,7 @@ namespace com.erik.training.controller
 		void HandleOnGoHome ()
 		{
 			ExerciseView.OnFinish -= HandleOnExerciseFinish;
+			ExerciseView.OnGoCalibration -= HandleOnGoCalibration;
 			RemoveFramePanelVeiwEvents ();
 
 			nextState = typeof(RS_Home);

@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\Main\View\CalibrationView.cs" />
      <Compile Include="Assets\Scripts\Main\View\CircleTimer.cs" />
      <Compile Include="Assets\Scripts\Main\View\ExerciseEntry.cs" />
+     <Compile Include="Assets\Scripts\Main\View\ExercisePopupView.cs" />
      <Compile Include="Assets\Scripts\Main\View\ExerciseStatusSubView.cs" />
      <Compile Include="Assets\Scripts\Main\View\ExerciseView.cs" />
      <Compile Include="Assets\Scripts\Main\View\FramePanelView.cs" />
