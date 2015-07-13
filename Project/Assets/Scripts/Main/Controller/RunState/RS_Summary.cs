@@ -22,7 +22,9 @@ namespace com.erik.training.controller
 			ViewController.OnReady -= HandleOnSummaryViewReady;
 			SummaryView.OnGOHome += HandleOnGoHome;
 			AddFramePanelViewEvents ();
+
 		}
+
 
 /*		void HandleOnGOHome ()
 		{

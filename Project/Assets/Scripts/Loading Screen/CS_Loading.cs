@@ -7,6 +7,9 @@ public class CS_Loading : MonoBehaviour {
 
 	public string strNameNextScene;
 	public Texture2D textureLoadingImage;
+	public Texture2D texureSplashImage;
+
+	private Texture2D textureToDraw;
 
 	#endregion  // PUBLIC VARIABLES
 
@@ -36,30 +39,28 @@ public class CS_Loading : MonoBehaviour {
 
 		}
 
-		DontDestroyOnLoad (this);
-		Application.backgroundLoadingPriority = ThreadPriority.Low;
-		isLoading = true;
-		asyncLoading = Application.LoadLevelAsync (strNameNextScene);
-
+		StartCoroutine ("StartLoading");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("Loding image drawing...");
+
+		if (asyncLoading == null)
+			return;
+
 		if (asyncLoading.isDone) {
-			StartCoroutine(NewSceneAfterDelay(1));
-//			isLoading = false;
+			StartCoroutine(NewSceneAfterDelay(0.5f));
 		}
 		else {
-//			isLoading = true;	
+
 		}
 	}
 
 	void OnGUI()
 	{
 		if (isLoading) {
-			Debug.Log("Loding image drawing...");
-			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), textureLoadingImage, ScaleMode.StretchToFill); 
+
+			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), textureToDraw, ScaleMode.StretchToFill); 
 		}
 	}
 
@@ -68,6 +69,31 @@ public class CS_Loading : MonoBehaviour {
 		yield return new WaitForSeconds (delaySec);
 		isLoading = false;
 		Destroy (this.gameObject);
+	}
+
+	IEnumerator StartLoading()
+	{
+		isLoading = true;
+
+		ShowSplash ();
+		yield return new WaitForSeconds (1f);
+
+		ShowLoadingImage ();
+		yield break;
+	}
+
+	void ShowSplash()
+	{
+		textureToDraw = texureSplashImage;
+	}
+
+	void ShowLoadingImage()
+	{
+		textureToDraw = textureLoadingImage;
+
+		DontDestroyOnLoad (this);
+		Application.backgroundLoadingPriority = ThreadPriority.Low;
+		asyncLoading = Application.LoadLevelAsync (strNameNextScene);
 	}
 
 	#endregion // MONOBEHAVIOR FUNCTIONS

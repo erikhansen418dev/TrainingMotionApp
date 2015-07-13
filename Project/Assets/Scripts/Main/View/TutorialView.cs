@@ -11,27 +11,27 @@ namespace com.erik.training.view{
 
 		private float timeCount = 5.0f;
 
-		public CircleTimer cirlceTimer;
+		public CircleTimer circleTimer;
 
 		// Use this for initialization
-		void Start () {
+		void Start () {	
 
-			StartCoroutine("Timer");
-			cirlceTimer.StartCountTime (timeCount);
+			circleTimer.OnTimerEnd += HandleOnTimerEnd;
+			circleTimer.StartCountTime (timeCount);
 			
 		}
+
+		void HandleOnTimerEnd ()
+		{
+			circleTimer.OnTimerEnd -= HandleOnTimerEnd;
+
+			if (OnPresentationCompleted != null)
+				OnPresentationCompleted ();
+		}	
 		
 		// Update is called once per frame
 		void Update () {
 			
-		}
-
-		IEnumerator Timer()
-		{
-			yield return new WaitForSeconds (timeCount);
-
-			if (OnPresentationCompleted != null)
-				OnPresentationCompleted ();
 		}
 	}
 

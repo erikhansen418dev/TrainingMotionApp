@@ -16,6 +16,16 @@ namespace com.erik.util{
 			
 			return component;
 		}
+
+		public static string SecondToMMSS(float totalSeconds)
+		{
+			totalSeconds += Time.deltaTime;
+			int seconds = ((int)totalSeconds) % 60;
+			int minutes = ((int)totalSeconds) / 60;
+			string time = minutes + ":" + seconds;
+
+			return time;
+		}
 	}
 }
 
