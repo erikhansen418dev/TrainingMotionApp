@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\Main\Model\Constants.cs" />
      <Compile Include="Assets\Scripts\Main\Model\Define.cs" />
      <Compile Include="Assets\Scripts\Main\Model\ExerciseData.cs" />
+     <Compile Include="Assets\Scripts\Main\Model\Setting.cs" />
      <Compile Include="Assets\Scripts\Main\Model\UserData.cs" />
      <Compile Include="Assets\Scripts\Main\View\AnimatedGifDrawer.cs" />
      <Compile Include="Assets\Scripts\Main\View\CalibrationView.cs" />

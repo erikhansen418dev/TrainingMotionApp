@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <ExerciseResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <FirstName>Dfsf</FirstName>
-  <FamilyName>Dfdsfs</FamilyName>
-  <Email>dfsfdf</Email>
-  <DateTime>7/14/2015 9:25:06 PM</DateTime>
+  <FirstName>Erik</FirstName>
+  <FamilyName>Hansen</FamilyName>
+  <Email>Erikhansen418@hotmail.com</Email>
+  <DateTime>7/14/2015 3:53:56 PM</DateTime>
   <Exercise>Exercise1</Exercise>
-  <Repetitions>0</Repetitions>
-  <Duration>0:11</Duration>
+  <Repetitions>2</Repetitions>
+  <Duration>0:17</Duration>
 </ExerciseResult>

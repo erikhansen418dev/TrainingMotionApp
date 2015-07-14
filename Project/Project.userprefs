@@ -1,14 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main\main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main\Model\Setting.cs">
     <Files>
-      <File FileName="Assets\Scripts\Main\View\InputNavigator.cs" Line="35" Column="5" />
-      <File FileName="Assets\Scripts\Loading Screen\CS_Loading.cs" Line="56" Column="4" />
-      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Home.cs" Line="94" Column="26" />
-      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Register.cs" Line="51" Column="9" />
-      <File FileName="Assets\Scripts\Main\Model\UserData.cs" Line="13" Column="3" />
-      <File FileName="Assets\Scripts\Main\View\RegisterView.cs" Line="70" Column="4" />
-      <File FileName="Assets\Scripts\Main\main.cs" Line="11" Column="1" />
+      <File FileName="Assets\Scripts\Loading Screen\CS_Loading.cs" Line="79" Column="37" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\TrainingAppRunState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\View\InputNavigator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Home.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Register.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Model\UserData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\View\RegisterView.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\main.cs" Line="19" Column="3" />
+      <File FileName="Assets\Scripts\Main\View\SummaryView.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Model\Setting.cs" Line="5" Column="2" />
+      <File FileName="Assets\Scripts\Main\Model\ExerciseData.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

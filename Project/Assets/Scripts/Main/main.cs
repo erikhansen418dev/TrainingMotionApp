@@ -2,13 +2,18 @@
 using System.Collections;
 using com.erik.util;
 using com.erik.training.controller;
+using com.erik.training.model;
 
 public class main : MonoBehaviour {
+
+	public string smtpClient;
+	public string senderEmailAddr;
+	public string password;
 
 	// Use this for initialization
 	void Start () {
 
-		TempClearHistory ();
+//		TempClearHistory ();
 		InitER ();
 
 	}
