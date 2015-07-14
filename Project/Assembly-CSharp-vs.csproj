@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\Main\Model\Define.cs" />
      <Compile Include="Assets\Scripts\Main\Model\ExerciseData.cs" />
      <Compile Include="Assets\Scripts\Main\Model\UserData.cs" />
+     <Compile Include="Assets\Scripts\Main\View\AnimatedGifDrawer.cs" />
      <Compile Include="Assets\Scripts\Main\View\CalibrationView.cs" />
      <Compile Include="Assets\Scripts\Main\View\CircleTimer.cs" />
      <Compile Include="Assets\Scripts\Main\View\ExerciseEntry.cs" />
@@ -85,6 +86,7 @@
      <Compile Include="Assets\Scripts\Main\View\ExerciseView.cs" />
      <Compile Include="Assets\Scripts\Main\View\FramePanelView.cs" />
      <Compile Include="Assets\Scripts\Main\View\HomeView.cs" />
+     <Compile Include="Assets\Scripts\Main\View\InputNavigator.cs" />
      <Compile Include="Assets\Scripts\Main\View\RegisterView.cs" />
      <Compile Include="Assets\Scripts\Main\View\SummaryView.cs" />
      <Compile Include="Assets\Scripts\Main\View\TutorialView.cs" />
@@ -96,6 +98,9 @@
      <Compile Include="Assets\Scripts\Util\Singleton.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.4/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Drawing">
+ <HintPath>E:/Work/TrainingMotionApp/Project/Assets/System.Drawing.dll</HintPath>
  </Reference>
  <Reference Include="Vectrosity">
  <HintPath>E:/Work/TrainingMotionApp/Project/Assets/Plugins/Vectrosity.dll</HintPath>

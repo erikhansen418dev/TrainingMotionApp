@@ -60,11 +60,11 @@ namespace com.erik.training.view{
 			ExerciseResult exeResult = new ExerciseResult (UserData.user, DataController.Instance.GetData ());
 			exeResult.Save (path);
 			
-/*			MailMessage mail = new MailMessage();
+			MailMessage mail = new MailMessage();
 			
 			mail.From = new MailAddress("rangeofmotion.xtr3d@gmail.com");
 			mail.To.Add(emailAddrTo);
-			mail.Subject = "Range of Motion app - Do not reply ";
+			mail.Subject = "Diabetes Training App Data - Do not reply ";
 			mail.Body = "Test";
 			mail.Attachments.Add(new Attachment(path));
 			
@@ -81,8 +81,7 @@ namespace com.erik.training.view{
 			status = "ok";
 			
 			Debug.Log("Sent..");			
-			
-*/
+
 			yield return null;
 			
 		}

@@ -49,7 +49,7 @@ public class CS_Loading : MonoBehaviour {
 			return;
 
 		if (asyncLoading.isDone) {
-			StartCoroutine(NewSceneAfterDelay(0.5f));
+			StartCoroutine(NewSceneAfterDelay(0f));
 		}
 		else {
 

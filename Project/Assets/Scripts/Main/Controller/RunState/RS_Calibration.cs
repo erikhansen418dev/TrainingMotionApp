@@ -65,6 +65,9 @@ namespace com.erik.training.controller{
 		{
 			CalibrationView.OnCalibrationSuccess -= HandleOnCalibrationSuccess;
 			RemoveFramePanelVeiwEvents ();
+
+			Debug.Log("APP Quit");
+			Application.Quit ();
 		}
 		
 		void HandleOnGoUserInfo ()

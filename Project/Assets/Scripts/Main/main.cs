@@ -8,7 +8,7 @@ public class main : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-//		TempClearHistory ();
+		TempClearHistory ();
 		InitER ();
 
 	}

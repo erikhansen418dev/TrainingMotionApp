@@ -20,7 +20,8 @@ namespace com.erik.training.view{
 		
 		// Use this for initialization
 		void Start () {
-			buttonNext.onClick.AddListener (OnNext);	
+			buttonNext.onClick.AddListener (OnNext);
+			SetDefaultValue ();
 		}
 		
 		// Update is called once per frame
@@ -58,7 +59,28 @@ namespace com.erik.training.view{
 				OnRegisterUserSuccess (user);
 			
 		}
+
+		void SetDefaultValue()
+		{
+			if(!string.IsNullOrEmpty(UserData.user.firstName))
+				inputFirstName.text = UserData.user.firstName;
+
+			if(!string.IsNullOrEmpty(UserData.user.lastName))
+				inputLastName.text = UserData.user.lastName;
+
+			if(!string.IsNullOrEmpty(UserData.user.email))
+				inputEmail.text = UserData.user.email;
+		}
+
+		// for administrator
+		
+		private bool IsAdministrator(string firstName, string lastName)
+		{
+			return true;
+		}
 	}
+
+
 
 
 }

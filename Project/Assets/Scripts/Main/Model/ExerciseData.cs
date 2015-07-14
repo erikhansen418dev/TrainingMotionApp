@@ -9,9 +9,8 @@ namespace com.erik.training.model{
 		public string title;
 		public string description;
 		public string gestureFilePath;
+		public string tutorialGifName;
 		public Sprite image;
-//		public string StartPosImagePath;
-//		public string EndPosImagePath;
 
 		public int repetition = 0;
 		public float duration = 0;
@@ -31,7 +30,9 @@ namespace com.erik.training.model{
 			title = data.title;
 			description = data.description;
 			gestureFilePath = data.gestureFilePath;
+			tutorialGifName = data.tutorialGifName;
 			image = data.image;
+
 //			StartPosImagePath = data.StartPosImagePath;
 //			EndPosImagePath = data.EndPosImagePath;
 
@@ -47,14 +48,13 @@ namespace com.erik.training.model{
 
 		public string ToString()
 		{
-			string exerciseData = string.Format ("Title : {0}, Description : {1}, GestureFileName : {2}, ImageName : {3}, Repetition : {4}, Duration : {5}",
-			                                     title, description, gestureFilePath, image.name, repetition, duration);  
+			string exerciseData = string.Format ("Title : {0}, Description : {1}, GestureFileName : {2}, ImageName : {3}, Tutorial Gif Image Path : {4}, Repetition : {5}, Duration : {6}",
+			                                     title, description, gestureFilePath, image.name, tutorialGifName, repetition, duration);  
 			return exerciseData;
 		}
 
 		public void Init()
 		{
-
 			repetition = 0;
 			duration = 0f;
 		}

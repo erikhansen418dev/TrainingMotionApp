@@ -156,6 +156,8 @@ namespace com.erik.training.view
 
 			} else {			
 				Debug.Log("User is going to Finish Exercise");
+				if (OnFinish != null)
+					OnFinish (count, totalTime);
 			}
 			
 		}

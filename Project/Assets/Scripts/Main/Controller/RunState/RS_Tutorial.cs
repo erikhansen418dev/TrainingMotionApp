@@ -59,6 +59,9 @@ namespace com.erik.training.controller{
 		{
 			TutorialView.OnPresentationCompleted -= HandleOnTutorialPresentationCompleted;
 			RemoveFramePanelVeiwEvents ();
+
+			Debug.Log("APP Quit");
+			Application.Quit ();
 		}
 		
 		void HandleOnGoUserInfo ()

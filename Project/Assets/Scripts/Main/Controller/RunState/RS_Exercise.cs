@@ -84,6 +84,9 @@ namespace com.erik.training.controller
 			ExerciseView.OnFinish -= HandleOnExerciseFinish;
 			ExerciseView.OnGoCalibration -= HandleOnGoCalibration;
 			RemoveFramePanelVeiwEvents ();
+
+			Debug.Log("APP Quit");
+			Application.Quit ();
 		}
 
 		void HandleOnGoUserInfo ()

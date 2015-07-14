@@ -56,6 +56,9 @@ namespace com.erik.training.controller
 		{
 			SummaryView.OnGOHome -= HandleOnGoHome;
 			RemoveFramePanelVeiwEvents ();
+
+			Debug.Log("APP Quit");
+			Application.Quit ();
 		}
 		
 		void HandleOnGoUserInfo ()
