@@ -19,9 +19,7 @@ public class User
 	public string lastName;
 	public string email;
 
-	public User()
-	{
-	}
+	public User(){}
 	
 	public User(string _firstName, string _lastName, string _email)
 	{

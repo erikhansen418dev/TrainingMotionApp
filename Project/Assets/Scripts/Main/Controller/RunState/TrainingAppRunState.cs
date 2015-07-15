@@ -25,8 +25,5 @@ namespace com.erik.training.controller{
 			FramePanelView.OnGoHome -= HandleOnGoHome;
 
 		}
-
-
 	}
-
 }

@@ -3,8 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-
-
 public class InputNavigator : MonoBehaviour
 {
 	EventSystem system;
@@ -30,11 +28,8 @@ public class InputNavigator : MonoBehaviour
 				InputField inputfield = next.GetComponent<InputField>();
 				if (inputfield != null)
 					inputfield.OnPointerClick(new PointerEventData(system));  //if it's an input field, also set the text caret
-				
-//				system.SetSelectedGameObject(next.gameObject, new BaseEventData(system));
 			}
 			//else Debug.Log("next nagivation element not found");			
 		}
-
 	}
 }

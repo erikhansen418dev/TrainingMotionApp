@@ -53,7 +53,6 @@ namespace com.erik.training.view{
 			}
 			
 			User user = new User (firstName, lastName, email);
-			//		RegisterUser (user);
 			
 			if (OnRegisterUserSuccess != null)
 				OnRegisterUserSuccess (user);

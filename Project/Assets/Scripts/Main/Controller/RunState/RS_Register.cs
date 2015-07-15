@@ -78,7 +78,5 @@ namespace com.erik.training.controller{
 		//////////
 		
 	}
-
-
 }
 

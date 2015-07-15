@@ -13,9 +13,8 @@ public class main : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-//		TempClearHistory ();
+		SetSettings ();
 		InitER ();
-
 	}
 	
 	// Update is called once per frame
@@ -41,5 +40,17 @@ public class main : MonoBehaviour {
 
 		RunState.nextState = typeof(RS_Init);
 		RunState.Done ();	
+	}
+
+	void SetSettings()
+	{
+		if (! string.IsNullOrEmpty (smtpClient))
+			Setting.smtpClient = smtpClient;
+
+		if (! string.IsNullOrEmpty (senderEmailAddr))
+			Setting.senderEmailAddr = senderEmailAddr;
+
+		if (! string.IsNullOrEmpty (password))
+			Setting.password = password;
 	}
 }

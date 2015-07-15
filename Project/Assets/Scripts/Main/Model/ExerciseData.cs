@@ -15,10 +15,7 @@ namespace com.erik.training.model{
 		public int repetition = 0;
 		public float duration = 0;
 		
-		public ExerciseData()
-		{
-			
-		}
+		public ExerciseData(){}
 		
 		public ExerciseData (string _gestureFileName)
 		{	
@@ -32,9 +29,6 @@ namespace com.erik.training.model{
 			gestureFilePath = data.gestureFilePath;
 			tutorialGifName = data.tutorialGifName;
 			image = data.image;
-
-//			StartPosImagePath = data.StartPosImagePath;
-//			EndPosImagePath = data.EndPosImagePath;
 
 			repetition = data.repetition;
 			duration = data.duration;

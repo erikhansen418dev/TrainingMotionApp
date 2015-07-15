@@ -36,7 +36,6 @@ public class CS_Loading : MonoBehaviour {
 		if (string.IsNullOrEmpty (strNameNextScene)) {
 			Debug.Log("Loading Screen Error : Name Of the Scene to be loaded was not set. Please check NameNextScene");
 			return;
-
 		}
 
 		StartCoroutine ("StartLoading");
@@ -59,7 +58,6 @@ public class CS_Loading : MonoBehaviour {
 	void OnGUI()
 	{
 		if (isLoading) {
-
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), textureToDraw, ScaleMode.StretchToFill); 
 		}
 	}

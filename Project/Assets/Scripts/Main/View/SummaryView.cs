@@ -23,6 +23,7 @@ namespace com.erik.training.view{
 		
 		// Use this for initialization
 		void Start () {
+
 			buttonHome.onClick.AddListener (OnButtonHome);
 			ShowExerciseResults ();
 			StartCoroutine("SendEmail");
@@ -50,6 +51,11 @@ namespace com.erik.training.view{
 
 		IEnumerator SendEmail()
 		{
+			string smtpClient 		 = Setting.smtpClient;
+			string senderEmailAddr	 = Setting.senderEmailAddr;
+			string password 		 = Setting.password;
+
+			Debug.Log (smtpClient + "  " + senderEmailAddr + " " + password);
 
 			Debug.Log("Sending Email...");
 
@@ -62,15 +68,15 @@ namespace com.erik.training.view{
 			
 			MailMessage mail = new MailMessage();
 			
-			mail.From = new MailAddress("rangeofmotion.xtr3d@gmail.com");
+			mail.From = new MailAddress(senderEmailAddr);
 			mail.To.Add(emailAddrTo);
 			mail.Subject = "Diabetes Training App Data - Do not reply ";
-			mail.Body = "Test";
+			mail.Body = "Exercise Result";
 			mail.Attachments.Add(new Attachment(path));
 			
-			SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+			SmtpClient smtpServer = new SmtpClient(smtpClient);
 			smtpServer.Port = 587;
-			smtpServer.Credentials = new System.Net.NetworkCredential("rangeofmotion.xtr3d@gmail.com", "rangeofmotionxtr3d") as ICredentialsByHost;
+			smtpServer.Credentials = new System.Net.NetworkCredential(senderEmailAddr, password) as ICredentialsByHost;
 			smtpServer.EnableSsl = true;
 			ServicePointManager.ServerCertificateValidationCallback = 
 				delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) 
