@@ -51,9 +51,9 @@ namespace com.erik.training.view{
 
 		IEnumerator SendEmail()
 		{
-			string smtpClient 		 = Setting.smtpClient;
-			string senderEmailAddr	 = Setting.senderEmailAddr;
-			string password 		 = Setting.password;
+			string smtpClient 		 = Settings.smtpClient;
+			string senderEmailAddr	 = Settings.senderEmailAddr;
+			string password 		 = Settings.password;
 
 			Debug.Log (smtpClient + "  " + senderEmailAddr + " " + password);
 

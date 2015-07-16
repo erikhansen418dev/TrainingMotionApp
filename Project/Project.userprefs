@@ -1,20 +1,24 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main\View\SummaryView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main\Model\Setting.cs">
     <Files>
-      <File FileName="Assets\Scripts\Main\main.cs" Line="54" Column="32" />
-      <File FileName="Assets\Scripts\Loading Screen\CS_Loading.cs" Line="40" Column="3" />
-      <File FileName="Assets\Scripts\Main\Controller\RunState\TrainingAppRunState.cs" Line="28" Column="3" />
-      <File FileName="Assets\Scripts\Main\View\InputNavigator.cs" Line="33" Column="4" />
-      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Home.cs" Line="45" Column="4" />
-      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Register.cs" Line="80" Column="3" />
-      <File FileName="Assets\Scripts\Main\Model\UserData.cs" Line="22" Column="16" />
-      <File FileName="Assets\Scripts\Main\View\RegisterView.cs" Line="31" Column="3" />
+      <File FileName="Assets\Scripts\Main\View\TutorialView.cs" Line="24" Column="79" />
+      <File FileName="Assets\Scripts\Main\main.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Loading Screen\CS_Loading.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\TrainingAppRunState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\View\InputNavigator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Home.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Register.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Model\UserData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\View\RegisterView.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Main\View\SummaryView.cs" Line="34" Column="4" />
-      <File FileName="Assets\Scripts\Main\Model\Setting.cs" Line="7" Column="3" />
-      <File FileName="Assets\Scripts\Main\Model\ExerciseData.cs" Line="18" Column="26" />
-      <File FileName="Assets\Scripts\Main\View\ExerciseView.cs" Line="31" Column="15" />
-      <File FileName="Assets\Scripts\Email_Xml\XMLSerializer.cs" Line="45" Column="17" />
+      <File FileName="Assets\Scripts\Main\Model\Setting.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\Model\ExerciseData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\View\ExerciseView.cs" Line="30" Column="25" />
+      <File FileName="Assets\Scripts\Email_Xml\XMLSerializer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main\View\HomeView.cs" Line="12" Column="3" />
+      <File FileName="Assets\Scripts\Main\Controller\RunState\RS_Exercise.cs" Line="23" Column="55" />
+      <File FileName="Assets\Scripts\Main\Controller\DataController.cs" Line="14" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

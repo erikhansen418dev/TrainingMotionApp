@@ -76,7 +76,7 @@
      <Compile Include="Assets\Scripts\Main\Model\Constants.cs" />
      <Compile Include="Assets\Scripts\Main\Model\Define.cs" />
      <Compile Include="Assets\Scripts\Main\Model\ExerciseData.cs" />
-     <Compile Include="Assets\Scripts\Main\Model\Setting.cs" />
+     <Compile Include="Assets\Scripts\Main\Model\Settings.cs" />
      <Compile Include="Assets\Scripts\Main\Model\UserData.cs" />
      <Compile Include="Assets\Scripts\Main\View\AnimatedGifDrawer.cs" />
      <Compile Include="Assets\Scripts\Main\View\CalibrationView.cs" />
@@ -91,12 +91,15 @@
      <Compile Include="Assets\Scripts\Main\View\RegisterView.cs" />
      <Compile Include="Assets\Scripts\Main\View\SummaryView.cs" />
      <Compile Include="Assets\Scripts\Main\View\TutorialView.cs" />
-     <Compile Include="Assets\Scripts\Main\View\temp Original Backup\ExerciseView_.cs" />
      <Compile Include="Assets\Scripts\Main\main.cs" />
      <Compile Include="Assets\Scripts\Util\Extention.cs" />
      <Compile Include="Assets\Scripts\Util\RS_Begin.cs" />
      <Compile Include="Assets\Scripts\Util\RunState.cs" />
      <Compile Include="Assets\Scripts\Util\Singleton.cs" />
+     <None Include="Assets\StreamingAssets\Gestures\Pose3.xml" />
+     <None Include="Assets\StreamingAssets\Gestures\Pose1.xml" />
+     <None Include="Assets\StreamingAssets\Gestures\Pose4.xml" />
+     <None Include="Assets\StreamingAssets\Gestures\Pose2.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.4/UnityEngine.UI.dll</HintPath>
  </Reference>

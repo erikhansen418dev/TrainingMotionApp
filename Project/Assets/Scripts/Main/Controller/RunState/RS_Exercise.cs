@@ -20,8 +20,8 @@ namespace com.erik.training.controller
 			ViewController.OnReady -= HandleOnExerciseViewReady;
 			ERSdkManager.OnReady += HandleOnERSDKReady;
 
-			string gestureFileName = DataController.Instance.GetData ().gestureFilePath;
-			ERSdkManager.Instance.SetGestureFile (gestureFileName);
+			string gestureFilePath = System.IO.Path.Combine(Settings.gestureFolderPath, DataController.Instance.GetData ().gestureFilePath);
+			ERSdkManager.Instance.SetGestureFile (gestureFilePath);
 		}
 
 		void HandleOnERSDKReady ()

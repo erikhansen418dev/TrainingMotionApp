@@ -10,6 +10,9 @@ public class main : MonoBehaviour {
 	public string senderEmailAddr;
 	public string password;
 
+	public string gesturesFolderName;
+	public string gifFolderName;
+
 	// Use this for initialization
 	void Start () {
 
@@ -45,12 +48,18 @@ public class main : MonoBehaviour {
 	void SetSettings()
 	{
 		if (! string.IsNullOrEmpty (smtpClient))
-			Setting.smtpClient = smtpClient;
+			Settings.smtpClient = smtpClient;
 
 		if (! string.IsNullOrEmpty (senderEmailAddr))
-			Setting.senderEmailAddr = senderEmailAddr;
+			Settings.senderEmailAddr = senderEmailAddr;
 
 		if (! string.IsNullOrEmpty (password))
-			Setting.password = password;
+			Settings.password = password;
+
+		if (! string.IsNullOrEmpty (gesturesFolderName))
+			Settings.gestureFolderPath = System.IO.Path.Combine(Application.streamingAssetsPath , gesturesFolderName);
+		
+		if (! string.IsNullOrEmpty (gifFolderName))
+			Settings.gifAnimationFolderPath = System.IO.Path.Combine(Application.streamingAssetsPath , gifFolderName);
 	}
 }

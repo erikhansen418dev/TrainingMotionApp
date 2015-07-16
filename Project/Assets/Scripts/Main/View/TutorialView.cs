@@ -11,7 +11,7 @@ namespace com.erik.training.view{
 		public static event TutorialViewEventDelegate OnPresentationCompleted;
 
 		public float timeCount = 10f;
-		public string gifFolerPath;
+		public string gifFolerPathInStreamingAsset;
 		public CircleTimer circleTimer;
 		public AnimatedGifDrawer gifDrawer;
 
@@ -21,10 +21,13 @@ namespace com.erik.training.view{
 			circleTimer.OnTimerEnd += HandleOnTimerEnd;
 			circleTimer.StartCountTime (timeCount);
 
-			string gifFilePath = System.IO.Path.Combine(Application.streamingAssetsPath, DataController.Instance.GetData ().tutorialGifName);
-//			string gifFilePath = gifFolerPath + DataController.Instance.GetData ().tutorialGifName;
+//			string gifFilePath = System.IO.Path.Combine(Application.streamingAssetsPath, gifFolerPathInStreamingAsset + "\\" + DataController.Instance.GetData ().tutorialGifName);
+
+			//			string gifFilePath = gifFolerPath + DataController.Instance.GetData ().tutorialGifName;
 
 			//"Assets\\Graphics\\Tutorial_Animation\\Exercise1Gif.gif"
+
+			string gifFilePath = System.IO.Path.Combine( Settings.gifAnimationFolderPath, DataController.Instance.GetData ().tutorialGifName);
 			gifDrawer.StartDraw (gifFilePath);
 			
 		}
